@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.devsuperior.dsvendas.dto.SellerDTO;
 import com.devsuperior.dsvendas.service.SellerService;
 
 @Controller
@@ -18,8 +19,8 @@ public class SellerController {
 	private SellerService service;
 	
 	@GetMapping
-	public ResponseEntity findAll() {
-		List list = service.findAll();
+	public ResponseEntity<List<SellerDTO>> findAll() {
+		List<SellerDTO> list = service.findAll();
 		return ResponseEntity.ok(list);
 	}
 	
